@@ -76,7 +76,7 @@ fn ask_question(q: &Question) -> bool {
 mod tests {
     use super::*;
 
-    // Luo testikysymykset YAML-muodossa
+    // Create sample questions in YAML format
     fn sample_yaml() -> &'static str {
         r#"
 - question: What is Rust?
@@ -118,13 +118,13 @@ mod tests {
             ],
             correct: "A".to_string(),
         };
-        // Simuloi oikea ja väärä vastaus
+        // Simulate correct and incorrect answers
         assert!(check_answer(&q, "A"));
         assert!(check_answer(&q, "a"));
         assert!(!check_answer(&q, "B"));
     }
 
-    // Apufunktio testaukseen, koska ask_question lukee stdinistä
+    // Helper function for testing, since ask_question reads from stdin
     fn check_answer(q: &Question, user_input: &str) -> bool {
         user_input.trim().eq_ignore_ascii_case(&q.correct)
     }
