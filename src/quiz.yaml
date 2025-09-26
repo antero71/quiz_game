@@ -1,0 +1,39 @@
+- question: What is the capital of France?
+  options:
+    - Berlin
+    - Madrid
+    - Paris
+    - Rome
+  correct: C
+
+- question: What is the largest country in the world by area?
+  options:
+    - Russia
+    - Canada
+    - China
+    - France
+  correct: A
+
+- question: Who is credited with inventing the World Wide Web?
+  options:
+    - Bill Gates
+    - Tim Berners-Lee
+    - Steve Jobs
+    - Elon Musk
+  correct: B
+
+- question: Which country is located between Norway and Finland?
+  options:
+    - Sweden
+    - Denmark
+    - Estonia
+    - Poland
+  correct: A
+
+- question: What is the longest river in South America?
+  options:
+    - Amazon River
+    - Paraná River
+    - Orinoco River
+    - São Francisco River
+  correct: A

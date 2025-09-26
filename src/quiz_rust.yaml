@@ -1,0 +1,39 @@
+- question: What command is used to create a new Rust project?
+  options:
+    - cargo new
+    - rustc new
+    - rust new
+    - cargo create
+  correct: A
+
+- question: Which keyword is used to define a constant in Rust?
+  options:
+    - let
+    - const
+    - static
+    - define
+  correct: B
+
+- question: What is the ownership system in Rust primarily designed to prevent?
+  options:
+    - Syntax errors
+    - Memory leaks and data races
+    - Slow compilation
+    - Infinite loops
+  correct: B
+
+- question: Which trait must be implemented to allow a struct to be printed with println!("{:?}", ...)?
+  options:
+    - Display
+    - Debug
+    - Print
+    - Show
+  correct: B
+
+- question: What does the Result<T, E> type in Rust represent?
+  options:
+    - A random number generator
+    - An optional value
+    - A value that can be either success or error
+    - A string formatter
+  correct: C
