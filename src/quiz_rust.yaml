@@ -37,3 +37,19 @@
     - A value that can be either success or error
     - A string formatter
   correct: C
+
+- question: What keyword is used in Rust to transfer ownership of a value to another variable?
+  options:
+    - move
+    - clone
+    - copy
+    - borrow
+  correct: A
+
+- question: What does the borrow checker in Rust prevent?
+  options:
+    - Use of uninitialized variables
+    - Data races and dangling references
+    - Infinite recursion
+    - Memory leaks only
+  correct: B
