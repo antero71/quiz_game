@@ -71,3 +71,61 @@ fn ask_question(q: &Question) -> bool {
         false
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    // Luo testikysymykset YAML-muodossa
+    fn sample_yaml() -> &'static str {
+        r#"
+- question: What is Rust?
+  options:
+    - A programming language
+    - A kind of cheese
+    - A car brand
+    - A planet
+  correct: A
+
+- question: What does 'let' do in Rust?
+  options:
+    - Declares a variable
+    - Prints text
+    - Imports a crate
+    - Ends a program
+  correct: A
+"#
+    }
+
+    #[test]
+    fn test_read_quiz_file_from_str() {
+        let questions: Vec<Question> = serde_yaml::from_str(sample_yaml()).unwrap();
+        assert_eq!(questions.len(), 2);
+        assert_eq!(questions[0].text, "What is Rust?");
+        assert_eq!(questions[0].options[2], "A car brand");
+        assert_eq!(questions[1].correct, "A");
+    }
+
+    #[test]
+    fn test_answer_checking() {
+        let q = Question {
+            text: "What is Rust?".to_string(),
+            options: vec![
+                "A programming language".to_string(),
+                "A kind of cheese".to_string(),
+                "A car brand".to_string(),
+                "A planet".to_string(),
+            ],
+            correct: "A".to_string(),
+        };
+        // Simuloi oikea ja väärä vastaus
+        assert!(check_answer(&q, "A"));
+        assert!(check_answer(&q, "a"));
+        assert!(!check_answer(&q, "B"));
+    }
+
+    // Apufunktio testaukseen, koska ask_question lukee stdinistä
+    fn check_answer(q: &Question, user_input: &str) -> bool {
+        user_input.trim().eq_ignore_ascii_case(&q.correct)
+    }
+}
